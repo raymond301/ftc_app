@@ -29,8 +29,8 @@ public class HardwareRealBot {
     public DcMotor rearRightMotor = null;
     public DcMotor sweeperMotor = null;
     public DcMotor conveyerMotor = null;
-    //public DcMotor leftShooterMotor = null;
-    //public DcMotor rightShooterMotor = null;
+    public DcMotor leftShooterMotor = null;
+    public DcMotor rightShooterMotor = null;
 
 
         /* local OpMode members. */
@@ -85,23 +85,21 @@ public class HardwareRealBot {
         conveyerMotor.setPower(0);
         conveyerMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-    }
-
 
             //Shooter motors
         //leftShooterMotor
-        /*leftShooterMotor = hwMap.dcMotor.get("lsm");
+        leftShooterMotor = hwMap.dcMotor.get("lsm");
         leftShooterMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
         leftShooterMotor.setPower(0);
         leftShooterMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //rightShooterMotor
-        rightShooterMotor = hwMap.dcMotor.get("rcm");
-        rightShooterMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
-        rightShooterMotor.setPower(0);
-        rightShooterMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    rightShooterMotor = hwMap.dcMotor.get("c");
+    rightShooterMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+    rightShooterMotor.setPower(0);
+    rightShooterMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
-    */
+
 
     /***
      *
