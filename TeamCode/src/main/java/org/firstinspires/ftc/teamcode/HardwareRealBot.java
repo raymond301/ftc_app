@@ -94,12 +94,15 @@ public class HardwareRealBot {
         leftShooterMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //rightShooterMotor
-    rightShooterMotor = hwMap.dcMotor.get("c");
-    rightShooterMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
-    rightShooterMotor.setPower(0);
-    rightShooterMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightShooterMotor = hwMap.dcMotor.get("rsm");
+        rightShooterMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        rightShooterMotor.setPower(0);
+        rightShooterMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
+    public boolean anyDriveMotorsBusy(){
+        return (rearLeftMotor.isBusy() && rearRightMotor.isBusy()&& forwardLeftMotor.isBusy() && forwardRightMotor.isBusy());
+    }
 
     /***
      *

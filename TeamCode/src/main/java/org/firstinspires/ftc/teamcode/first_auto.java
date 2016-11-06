@@ -14,6 +14,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Autonomous(name="auto: bulldozer", group="test1")
 public class first_auto extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
+    private ElapsedTime     runtime = new ElapsedTime();
     //1440 countsperrevoulution, 2.0 gear ratio, 4.0 wheel diameter, 3.1415 pi.
     static final double COUNTS_PER_INCH         = (1440 * 2.0) / (4.0 * 3.1415);
 
@@ -33,6 +34,9 @@ public class first_auto extends LinearOpMode {
         robot.forwardLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         idle();
 
+
+        encoderDrive(1.0,  48,  48, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
+        encoderDrive(0.5,   12, -12, 4.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
 
 
     }
@@ -75,11 +79,7 @@ public class first_auto extends LinearOpMode {
             robot.forwardRightMotor.setPower(Math.abs(speed));
 
             // keep looping while we are still active, and there is time left, and both motors are running.
-            while (opModeIsActive() &&
-                    (runtime.seconds() < timeoutS) &&
-                    (robot.rearLeftMotor.isBusy() && robot.rearRightMotor.isBusy()))
-                    (robot.forwardLeftMotor.isBusy() && robot.forwardRightMotor.isBusy())) {
-
+            while (opModeIsActive() && (runtime.seconds() < timeoutS) && robot.anyDriveMotorsBusy() ) {
 
                     // Display it for the driver.
                 telemetry.addData("Path1",  "Running to %7d :%7d", newLeftTarget,  newRightTarget);

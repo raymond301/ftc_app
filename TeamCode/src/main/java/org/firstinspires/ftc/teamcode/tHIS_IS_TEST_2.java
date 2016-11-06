@@ -81,11 +81,27 @@ public class tHIS_IS_TEST_2 extends LinearOpMode {
 
 
                 if (gamepad2.right_trigger > 0.5) {
+                    telemetry.addData("shooter", "full power");
                     robot.leftShooterMotor.setPower(-1.0);
                     robot.rightShooterMotor.setPower(1.0);
                 }
 
+
+
+                if (gamepad2.right_bumper )  {
+                    robot.leftShooterMotor.setPower(0);
+                    robot.rightShooterMotor.setPower(0);
+
+                }
+
+            if (gamepad2.left_bumper )  {
+                robot.leftShooterMotor.setPower(-0.75);
+                robot.rightShooterMotor.setPower(0.75);
+
+            }
+
                 else if (gamepad2.left_trigger > 0.5) {
+                    telemetry.addData("shooter", "half power");
                     robot.leftShooterMotor.setPower(-0.5);
                     robot.rightShooterMotor.setPower(0.5);
                 }
@@ -96,4 +112,4 @@ public class tHIS_IS_TEST_2 extends LinearOpMode {
         }
     }
 
-}}
+}
