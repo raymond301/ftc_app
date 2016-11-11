@@ -34,10 +34,12 @@ public class first_auto extends LinearOpMode {
         robot.forwardLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         idle();
 
-
-        encoderDrive(1.0,  48,  48, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
-        encoderDrive(0.5,   12, -12, 4.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
-
+        encoderDrive(1.0,  48,  48, 15.0);  // S1: Forward 47 Inches with 5 Sec timeout
+        telemetry.addData("say","forward acheived");
+        telemetry.update();
+        encoderDrive(0.5,   12, -12, 14.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
+        telemetry.addData("say","turn acheived");
+        telemetry.update();
 
     }
     /*
@@ -51,25 +53,35 @@ public class first_auto extends LinearOpMode {
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {
-        int newLeftTarget;
-        int newRightTarget;
+        int newREARLeftTarget;
+        int newREARRightTarget;
+        int newFWDLeftTarget;
+        int newFWDRightTarget;
 
         // Ensure that the opmode is still active
         if (opModeIsActive()) {
 
             // Determine new target position, and pass to motor controller
-            newLeftTarget = robot.forwardLeftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
-            newRightTarget = robot.forwardRightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-            newLeftTarget = robot.rearLeftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
-            newRightTarget = robot.rearRightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+            telemetry.addData("left current=", "%.4f", robot.forwardLeftMotor.getCurrentPosition());
+            telemetry.addData("right current=", "%.4f", robot.forwardRightMotor.getCurrentPosition());
+            newFWDLeftTarget = robot.forwardLeftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
+            newFWDRightTarget = robot.forwardRightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+            newREARLeftTarget = robot.rearLeftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
+            newREARRightTarget = robot.rearRightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+            telemetry.addData("left current=", "%.4f", newFWDLeftTarget);
+            telemetry.addData("right current=", "%.4f", newFWDRightTarget);
+            telemetry.update();
 
-            robot.rearLeftMotor.setTargetPosition(newLeftTarget);
-            robot.rearRightMotor.setTargetPosition(newRightTarget);
-            robot.forwardLeftMotor.setTargetPosition(newLeftTarget);
-            robot.forwardRightMotor.setTargetPosition(newRightTarget);
+
+            robot.rearLeftMotor.setTargetPosition(newREARLeftTarget);
+            robot.rearRightMotor.setTargetPosition(newREARRightTarget);
+            robot.forwardLeftMotor.setTargetPosition(newFWDLeftTarget);
+            robot.forwardRightMotor.setTargetPosition(newFWDRightTarget);
             // Turn On RUN_TO_POSITION
             robot.rearLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.rearRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.forwardLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.forwardRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
             runtime.reset();
@@ -82,7 +94,7 @@ public class first_auto extends LinearOpMode {
             while (opModeIsActive() && (runtime.seconds() < timeoutS) && robot.anyDriveMotorsBusy() ) {
 
                     // Display it for the driver.
-                telemetry.addData("Path1",  "Running to %7d :%7d", newLeftTarget,  newRightTarget);
+                telemetry.addData("Path1",  "Running to %7d :%7d", newFWDLeftTarget,  newFWDRightTarget);
                 telemetry.addData("Path2",  "Running at %7d :%7d",
                         robot.rearLeftMotor.getCurrentPosition(),
                         robot.rearRightMotor.getCurrentPosition(),

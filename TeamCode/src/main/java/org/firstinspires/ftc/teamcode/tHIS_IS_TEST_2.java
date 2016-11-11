@@ -94,13 +94,13 @@ public class tHIS_IS_TEST_2 extends LinearOpMode {
 
                 }
 
-            if (gamepad2.left_bumper )  {
+            if (gamepad2.left_trigger > 0.5 )  {
                 robot.leftShooterMotor.setPower(-0.75);
                 robot.rightShooterMotor.setPower(0.75);
 
             }
 
-                else if (gamepad2.left_trigger > 0.5) {
+                else if (gamepad2.left_bumper) {
                     telemetry.addData("shooter", "half power");
                     robot.leftShooterMotor.setPower(-0.5);
                     robot.rightShooterMotor.setPower(0.5);
