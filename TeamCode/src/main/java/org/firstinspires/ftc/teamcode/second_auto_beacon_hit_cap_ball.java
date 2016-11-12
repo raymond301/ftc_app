@@ -11,8 +11,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="auto: red beaconHitter", group="test1")
-public class second_auto_beacon_hit_mirror extends LinearOpMode {
+@Autonomous(name="auto: blue beaconHitterCapBall", group="test1")
+public class second_auto_beacon_hit_cap_ball extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
     //1440 countsperrevoulution, 2.0 gear ratio, 4.0 wheel diameter, 3.1415 pi.
@@ -45,6 +45,8 @@ public class second_auto_beacon_hit_mirror extends LinearOpMode {
         encoderDrive(0.75,   13, -13, 15.0);
         //3; forward to knock cap ball
         encoderDrive(0.75,   -30, -30, 20.0);
+        //forward to hit cap ball
+        encoderDrive(0.75,   40, 40, 20.0);
 
 
     }
