@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 ///**
 @Autonomous(name="auto: beaconHitter", group="test1")
-public class second_auto_beacon_hit extends LinearOpMode {
+public class second_auto_beacon_hit_mirror extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
     //1440 countsperrevoulution, 2.0 gear ratio, 4.0 wheel diameter, 3.1415 pi.
