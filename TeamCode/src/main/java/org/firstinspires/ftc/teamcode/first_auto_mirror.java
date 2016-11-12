@@ -6,13 +6,13 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor.*;
+import com.qualcomm.robotcore.hardware.DcMotor.RunMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="auto: blue bulldozer", group="test1")
-public class first_auto extends LinearOpMode {
+@Autonomous(name="auto: red bulldozer", group="test1")
+public class first_auto_mirror extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
     //1440 countsperrevoulution, 2.0 gear ratio, 4.0 wheel diameter, 3.1415 pi.
@@ -42,7 +42,7 @@ public class first_auto extends LinearOpMode {
         //1; come off wall to enable turn
         encoderDrive(1.0,  13,  13, 15.0);
         //2; double forward turn
-        encoderDrive(0.75,   6, -3, 15.0);
+        encoderDrive(0.75,   -3,6 , 15.0);
         //3; forward to knock cap ball
         encoderDrive(0.75,   25, 25, 15.0);
 
