@@ -11,8 +11,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="red: right bulldozer", group="test1")
-public class first_auto_mirror extends LinearOpMode {
+@Autonomous(name="auto: red bulldozer", group="test1")
+public class Shooter extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
     //1440 countsperrevoulution, 2.0 gear ratio, 4.0 wheel diameter, 3.1415 pi.
@@ -39,12 +39,8 @@ public class first_auto_mirror extends LinearOpMode {
 
         waitForStart();
         telemetry.addData("opmode1",opModeIsActive());
-        //1; come off wall to enable turn
-        encoderDrive(1.0,  13,  13, 15.0);
-        //2; double forward turn
-        encoderDrive(0.75,   -3,8 , 15.0);
-        //3; forward to knock cap ball
-        encoderDrive(0.75,   25, 25, 15.0);
+        //1 run conveyor to shooter
+
 
 
     }
@@ -100,7 +96,7 @@ public class first_auto_mirror extends LinearOpMode {
             // keep looping while we are still active, and there is time left, and both motors are running.
             while (opModeIsActive() && (runtime.seconds() < timeoutS) && robot.anyDriveMotorsBusy() ) {
 
-                    // Display it for the driver.
+                // Display it for the driver.
                 telemetry.addData("Path1",  "Running to %7d :%7d", newFWDLeftTarget,  newFWDRightTarget);
                 telemetry.addData("Path2",  "Running at %7d :%7d",
                         robot.rearLeftMotor.getCurrentPosition(),

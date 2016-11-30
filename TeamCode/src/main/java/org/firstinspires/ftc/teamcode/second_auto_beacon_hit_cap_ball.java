@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="auto: blue beaconHitterCapBall", group="test1")
+@Autonomous(name="blue: right beaconHitterCapBall", group="test1")
 public class second_auto_beacon_hit_cap_ball extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
@@ -39,6 +39,7 @@ public class second_auto_beacon_hit_cap_ball extends LinearOpMode {
 
         waitForStart();
         telemetry.addData("opmode1",opModeIsActive());
+
         //1; come off wall to enable turn
         encoderDrive(1.0,  40,  40, 15.0);
         //2; double forward turn
@@ -71,15 +72,10 @@ public class second_auto_beacon_hit_cap_ball extends LinearOpMode {
         if (opModeIsActive()) {
 
             // Determine new target position, and pass to motor controller
-            telemetry.addData("left current=", "%6d", robot.forwardLeftMotor.getCurrentPosition());
-            telemetry.addData("right current=", "%6d", robot.forwardRightMotor.getCurrentPosition());
             newFWDLeftTarget = robot.forwardLeftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newFWDRightTarget = robot.forwardRightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
             newREARLeftTarget = robot.rearLeftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newREARRightTarget = robot.rearRightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-            telemetry.addData("left current=", "%6d", newFWDLeftTarget);
-            telemetry.addData("right current=", "%6d", newFWDRightTarget);
-            telemetry.update();
 
 
             robot.rearLeftMotor.setTargetPosition(newREARLeftTarget);

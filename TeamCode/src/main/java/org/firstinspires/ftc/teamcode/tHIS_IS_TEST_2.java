@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 ///**
-@TeleOp(name="Bot: R2D2", group="test1")
+@TeleOp(name="Bot: tele-op", group="test1")
 public class tHIS_IS_TEST_2 extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
 
@@ -28,8 +28,7 @@ public class tHIS_IS_TEST_2 extends LinearOpMode {
         waitForStart();
 
 
-        telemetry.addData("Say","Test");
-        telemetry.update();
+
         //// run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
@@ -65,11 +64,11 @@ public class tHIS_IS_TEST_2 extends LinearOpMode {
 
 
             if(gamepad2.b) {
-                robot.conveyerMotor.setPower(100.0);
+                robot.conveyerMotor.setPower(75.0);
             }
 
             if(gamepad2.x) {
-                robot.conveyerMotor.setPower(-100.0);
+                robot.conveyerMotor.setPower(-75.0);
             }
 
             if (gamepad2.a) {

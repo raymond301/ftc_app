@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="auto: red beaconHitterCapBall", group="test1")
+@Autonomous(name="red: left beaconHitterCapBall", group="test1")
 public class second_auto_beacon_hit_cap_ball_mirror extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
