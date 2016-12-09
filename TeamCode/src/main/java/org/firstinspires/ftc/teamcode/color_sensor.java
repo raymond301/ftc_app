@@ -6,13 +6,13 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor.*;
+import com.qualcomm.robotcore.hardware.DcMotor.RunMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="blue: left bulldozer", group="test1")
-public class first_auto extends LinearOpMode {
+@Autonomous(name="auto: blue bulldozer", group="test1")
+public class color_sensor extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
     //1440 countsperrevoulution, 2.0 gear ratio, 4.0 wheel diameter, 3.1415 pi.

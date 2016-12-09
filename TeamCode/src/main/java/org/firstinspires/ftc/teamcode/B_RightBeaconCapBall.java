@@ -11,8 +11,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="red: right bulldozer", group="test1")
-public class first_auto_mirror extends LinearOpMode {
+@Autonomous(name="blue: right beaconHitterCapBall", group="test1")
+public class B_RightBeaconCapBall extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
     //1440 countsperrevoulution, 2.0 gear ratio, 4.0 wheel diameter, 3.1415 pi.
@@ -39,12 +39,15 @@ public class first_auto_mirror extends LinearOpMode {
 
         waitForStart();
         telemetry.addData("opmode1",opModeIsActive());
+
         //1; come off wall to enable turn
-        encoderDrive(1.0,  13,  13, 15.0);
+        encoderDrive(1.0,  40,  40, 15.0);
         //2; double forward turn
-        encoderDrive(0.75,   -3,8 , 15.0);
+        encoderDrive(0.75,   13, -13, 15.0);
         //3; forward to knock cap ball
-        encoderDrive(0.75,   25, 25, 15.0);
+        encoderDrive(0.75,   -30, -30, 20.0);
+        //forward to hit cap ball
+        encoderDrive(0.75,   40, 40, 20.0);
 
 
     }
@@ -69,15 +72,10 @@ public class first_auto_mirror extends LinearOpMode {
         if (opModeIsActive()) {
 
             // Determine new target position, and pass to motor controller
-            telemetry.addData("left current=", "%6d", robot.forwardLeftMotor.getCurrentPosition());
-            telemetry.addData("right current=", "%6d", robot.forwardRightMotor.getCurrentPosition());
             newFWDLeftTarget = robot.forwardLeftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newFWDRightTarget = robot.forwardRightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
             newREARLeftTarget = robot.rearLeftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newREARRightTarget = robot.rearRightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-            telemetry.addData("left current=", "%6d", newFWDLeftTarget);
-            telemetry.addData("right current=", "%6d", newFWDRightTarget);
-            telemetry.update();
 
 
             robot.rearLeftMotor.setTargetPosition(newREARLeftTarget);
