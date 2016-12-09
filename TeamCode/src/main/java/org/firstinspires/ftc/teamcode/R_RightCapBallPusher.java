@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="red: right bulldozer", group="test1")
+@Autonomous(name="Red Right Cap Ball Pusher", group="test1")
 public class R_RightCapBallPusher extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();

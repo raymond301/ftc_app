@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="blue: left bulldozer", group="test1")
+@Autonomous(name="Blue Left Cap Ball Pusher", group="test1")
 public class B_LeftCapBallPusher extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
@@ -41,7 +41,7 @@ public class B_LeftCapBallPusher extends LinearOpMode {
         telemetry.addData("opmode1",opModeIsActive());
         //1; come off wall to enable turn
         encoderDrive(1.0,  13,  13, 15.0);
-        //2; double forward turn
+        //2;
         encoderDrive(0.75,   6, -3, 15.0);
         //3; forward to knock cap ball
         encoderDrive(0.75,   25, 25, 15.0);
