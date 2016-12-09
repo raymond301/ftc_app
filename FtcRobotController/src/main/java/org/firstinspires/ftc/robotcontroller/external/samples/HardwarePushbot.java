@@ -72,7 +72,8 @@ public class HardwarePushbot
         leftClaw.setPosition(MID_SERVO);
         rightClaw.setPosition(MID_SERVO);
     }
-
+    //leftClaw = hwMap.servo.get("left_hand");
+    //leftClaw.setPosition(MID_SERVO);
     /***
      *
      * waitForTick implements a periodic delay. However, this acts like a metronome with a regular

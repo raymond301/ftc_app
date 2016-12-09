@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
@@ -31,6 +32,10 @@ public class HardwareRealBot {
     public DcMotor conveyerMotor = null;
     public DcMotor leftShooterMotor = null;
     public DcMotor rightShooterMotor = null;
+    public Servo sa    = null;
+
+
+    public static final double MID_SERVO       =  0.5 ;
 
 
         /* local OpMode members. */
@@ -98,6 +103,10 @@ public class HardwareRealBot {
         rightShooterMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         rightShooterMotor.setPower(0);
         rightShooterMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        //servo
+        sa = hwMap.servo.get("sa");
+        sa.setPosition(MID_SERVO);
     }
 
     public boolean anyDriveMotorsBusy(){

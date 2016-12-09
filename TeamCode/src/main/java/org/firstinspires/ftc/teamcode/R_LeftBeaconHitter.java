@@ -127,6 +127,7 @@ public class R_LeftBeaconHitter extends LinearOpMode {
         telemetry.addData("say","end of function");
         robot.waitForTick(40);
 
+
     }
 
 

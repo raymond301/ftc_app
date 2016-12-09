@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 ///**
-@Autonomous(name="auto: red bulldozer", group="test1")
+@Autonomous(name="auto: red Shooter", group="test1")
 public class Shooter extends LinearOpMode {
     HardwareRealBot robot = new HardwareRealBot();
     private ElapsedTime     runtime = new ElapsedTime();
@@ -40,8 +40,7 @@ public class Shooter extends LinearOpMode {
         waitForStart();
         telemetry.addData("opmode1",opModeIsActive());
         //1 run conveyor to shooter
-
-
+        robot.conveyerMotor.setPower(100);
 
     }
     /*
